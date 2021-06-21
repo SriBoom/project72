@@ -4,7 +4,6 @@ import { TextInput } from 'react-native-gesture-handler';
 import { Header } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import db from '../config';
-import firebase from 'firebase';
 
 export default class TransactionScreen extends React.Component {
     constructor(){
@@ -29,6 +28,8 @@ export default class TransactionScreen extends React.Component {
         author: '',
         story:'',
       })
+      //ToastAndroid.show("Story Submitted", ToastAndroid.SHORT);
+      Alert.alert("Story Submitted");
     }
 
     render(){
@@ -76,12 +77,7 @@ export default class TransactionScreen extends React.Component {
 
             <TouchableOpacity 
             style={styles.submitButton}
-            onPress={()=>{
-              this.submitStory
-             // ToastAndroid.show("Stroy Submitted", ToastAndroid.SHORT);
-             Alert.alert("Story Submitted");
-            }}
-            >
+            onPress={this.submitStory}>
             <Text style={styles.submitButtonText}>Submit</Text>
             </TouchableOpacity>
             </View>
